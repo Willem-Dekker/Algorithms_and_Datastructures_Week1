@@ -147,18 +147,18 @@ public class ApplicationWeek1 {
      */
     private Person findPersonByNameBinary(List<Person> phoneBook, String lastName) {
         int left = 0, right = phoneBook.size()-1, middle = (left+right)/2; //setting vars for the sort
-        while(!phoneBook.get(middle).getLastName().equals(lastName) && left < right){ //while the lastname in the middle is not the one we need AND left is less then right
-            int compareToNumber = phoneBook.get(middle).getLastName().compareTo(lastName); //check if the lastname is lower or higher in the alphabet
+        while(!phoneBook.get(middle).getLastName().equals(lastName) && left < right){ //while the last name in the middle is not the one we need AND left is less then right
+            int compareToNumber = phoneBook.get(middle).getLastName().compareTo(lastName); //check if the last name is lower or higher in the alphabet
             if (compareToNumber < 0){ //if the name is higher in the alphabet
                 left = middle + 1; // left is the old middle plus one
             }else if (compareToNumber > 0){ // if the name is lower in the alphabet
                 right = middle - 1; //right is the middle minus one
             }
-            middle = (left + right) / 2; //the new middle is de diverence between left and right
+            middle = (left + right) / 2; //the new middle is de deference between left and right
         }
-        if (phoneBook.get(middle).getLastName().equals(lastName)){ //if the lastname in the middle is equeal to the one we need
+        if (phoneBook.get(middle).getLastName().equals(lastName)){ //if the last name in the middle is equal to the one we need
             return phoneBook.get(middle); //return the person
-        }else { //the lastname was not found.
+        }else { //the last name was not found.
             return null; //return null
         }
     }
