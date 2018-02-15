@@ -146,20 +146,20 @@ public class ApplicationWeek1 {
      * @return The instance of Person matching the lastName of the person or null.
      */
     private Person findPersonByNameBinary(List<Person> phoneBook, String lastName) {
-        int left = 0, right = phoneBook.size()-1, middle = (left+right)/2;
-        while(!phoneBook.get(middle).getLastName().equals(lastName) && left < right){
-            int comToNumber = phoneBook.get(middle).getLastName().compareTo(lastName);
-            if (comToNumber < 0){
-                left = middle + 1;
-            }else if (comToNumber > 0){
-                right = middle - 1;
+        int left = 0, right = phoneBook.size()-1, middle = (left+right)/2; //setting vars for the sort
+        while(!phoneBook.get(middle).getLastName().equals(lastName) && left < right){ //while the lastname in the middle is not the one we need AND left is less then right
+            int compareToNumber = phoneBook.get(middle).getLastName().compareTo(lastName); //check if the lastname is lower or higher in the alphabet
+            if (compareToNumber < 0){ //if the name is higher in the alphabet
+                left = middle + 1; // left is the old middle plus one
+            }else if (compareToNumber > 0){ // if the name is lower in the alphabet
+                right = middle - 1; //right is the middle minus one
             }
-            middle = (left + right) / 2;
+            middle = (left + right) / 2; //the new middle is de diverence between left and right
         }
-        if (phoneBook.get(middle).getLastName().equals(lastName)){
-            return phoneBook.get(middle);
-        }else {
-            return null;
+        if (phoneBook.get(middle).getLastName().equals(lastName)){ //if the lastname in the middle is equeal to the one we need
+            return phoneBook.get(middle); //return the person
+        }else { //the lastname was not found.
+            return null; //return null
         }
     }
 
