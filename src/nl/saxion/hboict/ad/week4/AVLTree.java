@@ -1,5 +1,7 @@
 package nl.saxion.hboict.ad.week4;
 
+import java.lang.management.BufferPoolMXBean;
+
 /**
  * You should only work in this file once you are comfortable with the implementation of BinarySearchTree!
  */
@@ -40,7 +42,12 @@ public class AVLTree extends BinarySearchTree {
 
     public int getBalance() {
         // TODO: Assignment 3
-        return 0;
+
+        if (isEmpty()){
+            return 0;
+        }else{
+            return leftChild.getHeight() - rightChild.getHeight();
+        }
     }
 
     @Override

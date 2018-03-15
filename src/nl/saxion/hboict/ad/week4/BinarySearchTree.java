@@ -47,6 +47,18 @@ public class BinarySearchTree {
      * @param value The value that needs to be inserted
      */
     public void insert(int value) {
+        if (isEmpty()){
+            data = value;
+            leftChild = makeTree();
+            rightChild = makeTree();
+        }else {
+            if (value > data) {
+                rightChild.insert(value);
+            } else{
+                leftChild.insert(value);
+            }
+        }
+
        // TODO: Assignment 1
     }
 
@@ -126,6 +138,15 @@ public class BinarySearchTree {
      */
     public boolean contains(int value) {
         // TODO: Assignment 2
+        if (!isEmpty()){
+            if (data == value){
+            return true;
+            }else if(data > value){
+                return leftChild.contains(value);
+            }else if (data < value){
+                return rightChild.contains(value);
+            }
+        }
         return false;
     }
 

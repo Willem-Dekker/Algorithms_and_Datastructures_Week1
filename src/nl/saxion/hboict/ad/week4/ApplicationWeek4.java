@@ -13,7 +13,10 @@ public class ApplicationWeek4 {
         for(int i : dummyData) {
             myBST.insert(i);
         }
-       // printTree(myBST); // please uncomment when insert (see Assignment 1) has been implemented.
+       printTree(myBST); // please uncomment when insert (see Assignment 1) has been implemented.
+
+        if (myBST.contains(3)) System.out.println("yes");
+        else System.out.println("no");
     }
 
     /**
